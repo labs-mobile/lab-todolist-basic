@@ -4,19 +4,25 @@ package prototype.todolist.data
 
 class TaskDao {
 
+    companion object {
+        private var list_tasks : MutableList<TaskEntry> = mutableListOf<TaskEntry>()
 
-    private var list_tasks : MutableList<TaskEntry> = mutableListOf<TaskEntry>()
+        init {
+            // Todo : add 10 tasks
+            for( i in 1..10){
+                val task = TaskEntry(i,"Task $i",1,System.currentTimeMillis())
+                list_tasks.add(task)
+            }
 
-    init {
-        // Todo : add 10 tasks
-        val t1 = TaskEntry(1,"Task1")
-        list_tasks.add(t1)
-        list_tasks.add(t1)
+
+        }
     }
 
-    fun insert(taskEntry: TaskEntry){
 
-         list_tasks.add(taskEntry)
+
+
+    fun insert(taskEntry: TaskEntry){
+        TaskDao.list_tasks.add(taskEntry)
      }
 
      fun delete(taskEntry: TaskEntry){
@@ -24,12 +30,12 @@ class TaskDao {
      }
 
      fun update(taskEntry: TaskEntry){
-
+         TaskDao.list_tasks[taskEntry.id - 1] = taskEntry
      }
 
 
     fun getAllTasks(): MutableList<TaskEntry> {
-        return list_tasks
+        return TaskDao.list_tasks
     }
 
 

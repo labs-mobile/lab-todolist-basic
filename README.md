@@ -1,5 +1,5 @@
 # Labo Todolist basique
-  test2
+ 
 ## Conditions préalables
 
 - POO avec Kotlin
@@ -8,20 +8,40 @@
   - The idea with this pattern is to have a generic abstract way for the app to work with the data layer without being bother with if the implementation is towards a local database or towards an online API.
     - [Repository Design Pattern](https://medium.com/@pererikbergman/repository-design-pattern-e28c0f3e4a30)
     - [Repository Design Pattern for Data Access in Software Development](https://psid23.medium.com/repository-pattern-for-data-access-in-software-development-4c10aa9604da)
+- ViewBinding
 
 ## Travail à faire
 
 - Création du projet à l'aide de deux activités
+  - Sans utiliser 
+    - ViewModel
+
+## Travail à faire : version 2
+- Possibilité de changer le LayoutManager de RecyclerView
+- Utilisez DataBinding au lieu de ViewBinding
+- add setTimestamp and setPriority to task_view
 
 ## Les étapes de réalisation.
 
 - Création du projet vide
-- Mise en place du projet
-- Création de classes d'entités
+- Configuration du projet
+- Création des classes
+  - TaskDao
+  - TaskEntry
+  - TaskRepository
+
 - Création de l'activité : MainActivity
 - Création de l'activité : TaskFormActivity
 
 ## Configuration du projet
+
+### Configuration de ViewBinding 
+
+````conf
+    buildFeatures {
+        viewBinding = true
+    }
+````
 
 ## Création de classes d'entités
 
