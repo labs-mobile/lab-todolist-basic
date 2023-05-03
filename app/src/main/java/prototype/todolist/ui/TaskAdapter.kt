@@ -21,10 +21,10 @@ import prototype.todolist.data.TaskRepository
 
 class TaskAdapter(private var listener: OnItemClickListener) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
+    // Todo : voir comment utiliser des événement avec Kotlin
     interface OnItemClickListener {
-        fun onItemClick(task: TaskEntry, taskAdapter : TaskAdapter)
+        fun onItemClick(task: TaskEntry)
     }
-
 
     private val taskRepository = TaskRepository()
 
@@ -54,19 +54,8 @@ class TaskAdapter(private var listener: OnItemClickListener) : RecyclerView.Adap
         taskViewHolder.taskTimestamp.text = task.timestamp.toString()
 
         taskViewHolder.cardView.setOnClickListener {
-
-            listener.onItemClick(task, this)
-
-
+            listener.onItemClick(task)
         }
-
-
-
-
-
-
-
-
     }
 
 }

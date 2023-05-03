@@ -18,35 +18,23 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var taskAdapter : TaskAdapter
-
-
-    override fun onResume() {
-        super.onResume()
-        Toast.makeText(applicationContext,"onResume", Toast.LENGTH_LONG)
-
-    }
-
-    private var listener = object : TaskAdapter.OnItemClickListener {
-        override fun onItemClick(task: TaskEntry, taskAdapter : TaskAdapter) {
-             Toast.makeText(applicationContext,task.title,Toast.LENGTH_SHORT).show()
-
-            val intent = Intent(applicationContext, TaskFormActivity::class.java)
-            intent.putExtra("position", task.id)
-            startForResult.launch(intent)
-
-
-        }
-    }
+    private lateinit var listener : TaskAdapter.OnItemClickListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        Toast.makeText(applicationContext,"onCreate", Toast.LENGTH_LONG)
-
         super.onCreate(savedInstanceState)
 
-        // ViewBinding
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        this.listener = object : TaskAdapter.OnItemClickListener {
+            override fun onItemClick(task: TaskEntry) {
+                val intent = Intent(applicationContext, TaskFormActivity::class.java)
+                intent.putExtra("taskId", task.id)
+                startForResult.launch(intent)
+            }
+        }
 
         this.taskAdapter = TaskAdapter(listener)
         this.recyclerView = binding.recyclerView
@@ -56,7 +44,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
 
 
     val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {

@@ -22,8 +22,8 @@ class TaskFormActivity : AppCompatActivity() {
         val binding = ActivityTaskFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val position = intent?.extras?.getInt("position")
-        val task = taskRepository.getAllTasks()[position!!]
+        val taskId = intent?.extras?.getInt("taskId")
+        val task = taskRepository.findById(taskId!!)
 
         binding.apply {
             editTaskTitle.setText(task.title)
