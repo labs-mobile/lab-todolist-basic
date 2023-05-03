@@ -1,4 +1,5 @@
-package com.example.todolist.data.local
+package prototype.todolist.data
+
 
 
 class TaskDao {
@@ -8,7 +9,7 @@ class TaskDao {
 
     init {
         // Todo : add 10 tasks
-        val t1 = TaskEntry(1,"Task1",1,System.currentTimeMillis())
+        val t1 = TaskEntry(1,"Task1")
         list_tasks.add(t1)
         list_tasks.add(t1)
     }
