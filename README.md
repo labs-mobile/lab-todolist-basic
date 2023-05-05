@@ -9,6 +9,9 @@
     - [Repository Design Pattern](https://medium.com/@pererikbergman/repository-design-pattern-e28c0f3e4a30)
     - [Repository Design Pattern for Data Access in Software Development](https://psid23.medium.com/repository-pattern-for-data-access-in-software-development-4c10aa9604da)
 - ViewBinding
+- UI
+  - ToolBar
+    - https://www.daniweb.com/programming/mobile-development/tutorials/537009/android-native-how-to-add-material-3-top-app-bar
 
 ## Travail à faire
 
