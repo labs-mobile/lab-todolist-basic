@@ -13,6 +13,9 @@
   - ToolBar
     - https://www.daniweb.com/programming/mobile-development/tutorials/537009/android-native-how-to-add-material-3-top-app-bar
 
+- Navigation
+
+
 ## Travail à faire
 
 - Création du projet à l'aide de deux activités
@@ -37,6 +40,8 @@
 - Création de l'activité : TaskFormActivity
 
 ## Configuration du projet
+
+
 
 ### Configuration de ViewBinding 
 
