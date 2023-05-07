@@ -1,8 +1,6 @@
 package prototype.todolist.ui
 
-import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,26 +8,17 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import prototype.todolist.R
 import prototype.todolist.data.TaskEntry
-import prototype.todolist.databinding.ActivityMainBinding
 import prototype.todolist.databinding.FragmentTaskManagerBinding
 
 class TaskManagerFragment : Fragment() {
 
     private var _binding: FragmentTaskManagerBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
-
-
     private lateinit var recyclerView: RecyclerView
     private lateinit var taskAdapter : TaskAdapter
     private lateinit var listener : TaskAdapter.OnItemClickListener
@@ -44,7 +33,7 @@ class TaskManagerFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Retrieve and inflate the layout for this fragment
         _binding = FragmentTaskManagerBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -73,8 +62,8 @@ class TaskManagerFragment : Fragment() {
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter =  taskAdapter
             floatingActionButton.setOnClickListener{
-//                val intent = Intent(applicationContext, TaskFormActivity::class.java)
-//                startForResult.launch(intent)
+                val action = TaskManagerFragmentDirections.actionTaskManagerFragmentToTaskFormFragment(taskid = 0 )
+                view.findNavController().navigate(action)
             }
 
         }
