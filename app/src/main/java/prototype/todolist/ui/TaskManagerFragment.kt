@@ -12,7 +12,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import prototype.todolist.R
-import prototype.todolist.data.TaskEntry
 import prototype.todolist.databinding.FragmentTaskManagerBinding
 
 class TaskManagerFragment : Fragment() {
@@ -21,7 +20,6 @@ class TaskManagerFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
     private lateinit var taskAdapter : TaskAdapter
-    private lateinit var listener : TaskAdapter.OnItemClickListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,20 +41,8 @@ class TaskManagerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.recyclerView
 
-        // todo : voir la meilleur façon de création des événement avec kotlin
-        this.listener = object : TaskAdapter.OnItemClickListener {
-            override fun onItemClick(task: TaskEntry) {
 
-                val action = TaskManagerFragmentDirections.actionTaskManagerFragmentToTaskFormFragment(taskid = task.id )
-                view.findNavController().navigate(action)
-//                val intent = Intent(applicationContext, TaskFormActivity::class.java)
-//                intent.putExtra("taskId", task.id)
-//                startForResult.launch(intent)
-            }
-        }
-
-
-        this.taskAdapter =  TaskAdapter(listener)
+        this.taskAdapter =  TaskAdapter(view.findNavController())
         binding.apply {
             // Todo version 2 : Ajoutez la possibilité de choisir le layoutManager depuis un button sur le menu
             recyclerView.layoutManager = LinearLayoutManager(context)
@@ -85,26 +71,4 @@ class TaskManagerFragment : Fragment() {
 
     }
 
-
-
-//    // todo : Recherche : SuppressLint
-//    @SuppressLint("SuspiciousIndentation")
-//    val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-//            result: ActivityResult ->
-//        if (result.resultCode == Activity.RESULT_OK) {
-//            val intent = result.data
-//
-//            val message = result.data!!.extras?.getString("keyName")
-//                ?: "No Result Provided"
-//
-//            this.taskAdapter.notifyDataSetChanged()
-//            Toast.makeText(applicationContext,message, Toast.LENGTH_LONG)
-//
-//        }
-//    }
-
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.layout_menu, menu)
-//        return true
-//    }
 }

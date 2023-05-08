@@ -1,32 +1,22 @@
 package prototype.todolist.ui
 
-import android.app.Activity
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import prototype.todolist.R
-import prototype.todolist.data.TaskEntry
 import prototype.todolist.data.TaskRepository
 
 
-class TaskAdapter(private var listener: OnItemClickListener) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
-
-    // Todo : voir comment utiliser des événement avec Kotlin
-    interface OnItemClickListener {
-        fun onItemClick(task: TaskEntry)
-    }
+class TaskAdapter(navController: NavController) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     private val taskRepository = TaskRepository()
+    private val navController = navController
 
     class TaskViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val taskTitle: TextView = view.findViewById<Button>(R.id.taskTitle)
@@ -54,7 +44,9 @@ class TaskAdapter(private var listener: OnItemClickListener) : RecyclerView.Adap
         taskViewHolder.taskTimestamp.text = task.timestamp.toString()
 
         taskViewHolder.cardView.setOnClickListener {
-            listener.onItemClick(task)
+            // update
+            val action = TaskManagerFragmentDirections.actionTaskManagerFragmentToTaskFormFragment(taskid = task.id )
+            navController.navigate(action)
         }
     }
 
