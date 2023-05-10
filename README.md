@@ -57,6 +57,26 @@
 
 ## Création de l'activité : TaskFormActivity
 
+## Prototype - simple
+- ViewModel
+- RecyclerView
+- POO
+- Repository Pattern
+  
+## Prototype - Basic
+- Material Design
+- ViewModel
+- LiveData
+- ROOM
+
+## Prototype - Standard
+- MVVM architecture
+- Dependency Injection
+- UnitTest
+
 
 ## Les références
+- [Android Fundamentals in Kotlin Starter Apps](https://github.com/google-developer-training/android-kotlin-fundamentals-starter-apps)
+- [Android Fundamentals in Kotlin Solution Apps](https://github.com/google-developer-training/android-kotlin-fundamentals-apps)
 - [Repository Design Pattern](https://medium.com/@pererikbergman/repository-design-pattern-e28c0f3e4a30)
+- [Google Developer Training](https://github.com/google-developer-training)
