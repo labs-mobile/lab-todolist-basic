@@ -75,8 +75,15 @@
 - UnitTest
 
 
+
+
 ## Les références
+- https://medium.com/@carloslopez_19744/android-todo-app-gotodo-part-2-creating-a-simple-mvp-android-app-with-retrofit-6eec0d0b909f
 - [Android Fundamentals in Kotlin Starter Apps](https://github.com/google-developer-training/android-kotlin-fundamentals-starter-apps)
 - [Android Fundamentals in Kotlin Solution Apps](https://github.com/google-developer-training/android-kotlin-fundamentals-apps)
 - [Repository Design Pattern](https://medium.com/@pererikbergman/repository-design-pattern-e28c0f3e4a30)
 - [Google Developer Training](https://github.com/google-developer-training)
+- gotodo-android
+  - https://medium.com/@carloslopez_19744/android-todo-app-gotodo-part-2-creating-a-simple-mvp-android-app-with-retrofit-6eec0d0b909f
+  - https://github.com/calo001/gotodo-android
+
